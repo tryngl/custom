@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TryNGL Custom Demo</title>
+  <script>
+    window._genesys = {
+        widgets: {
+            main: {
+                debug: false,
+                downloadGoogleFont: false
+            },
+            webchat: {
+                chatButton: {
+                    enabled: false
+                }
+            },
+            onReady: function(){
+                document.getElementById('chat_button').disabled = false;
+            }
+        }
+    };
+  </script>
+  <script src="https://apps.usw2.pure.cloud/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.usw2.pure.cloud/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
+  <style>
+    body {
+        font-family: 'Roboto', 'Helvetica', 'sans-serif';  
+        }
+    .chat_button {
+        color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ed3330;
+        padding: 20px;
+        border-radius: 5px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+        cursor: pointer;
+        font-size: 16px;
+        }
+
+    .chat_button:disabled {
+        background-color: #606060;
+        }
+  </style>
+</head>
+<body>
+    <div align="center">
+        <button class="chat_button" id="chat_button" onclick="CXBus.command('WebChat.open')" disabled>
+          Click here to start chat
+        </button>
+    </div>
+</body>
+</html>
