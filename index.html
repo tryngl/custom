@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TryNGL Custom Demo</title>
+  <script>
+    window._genesys = {
+        widgets: {
+            main: {
+                debug: false,
+                downloadGoogleFont: false
+            },
+            webchat: {
+                chatButton: {
+                    enabled: false
+                }
+            },
+            onReady: function(){
+                document.getElementById('chat_button').disabled = false;
+            }
+        }
+    };
+  </script>
+  <script src="https://apps.mypurecloud.de/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.de/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
+</head>
+<body>
+    <div align="center">
+        <button class="chat_button" id="chat_button" onclick="CXBus.command('WebChat.open')" disabled>
+          Click here to start chat
+        </button>
+    </div>
+</body>
+</html>
